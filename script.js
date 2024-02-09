@@ -134,3 +134,40 @@ function openModal(modalId) {
         modal.style.display = 'block';
     }
 }
+
+function openModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
+
+// Function to open the "Coming Soon" modal
+function openComingSoonModal() {
+    var modal = document.getElementById("comingSoonModal");
+    modal.style.display = "block";
+}
+
+// Function to close the "Coming Soon" modal
+function closeComingSoonModal() {
+    var modal = document.getElementById("comingSoonModal");
+    modal.style.display = "none";
+}
+
+function closeComingSoonModal() {
+    var modal = document.getElementById("comingSoonModal");
+    modal.style.display = "none";
+}
+
+window.addEventListener('click', function(event) {
+    var modal = document.getElementById("comingSoonModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+});
+
+
