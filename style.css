@@ -1,26 +1,15 @@
+/* Reset and Base Styles */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600&display=swap');
 
-/*  */
-/* The words in the top left of my portfolio */
-.logo  {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 30px;
-        color: #fff;
-        text-decoration: none;
-        font-weight: 700;
-
-}
-
-/* Changes the font family for the Primary words and secondary */
-.banner {
+body {
     font-family: 'Montserrat', sans-serif;
-
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #fff;
 }
 
-/* Aligning and positioning of the image */
+/* Header Styles */
 .header {
     position: fixed;
     top: 0;
@@ -30,330 +19,142 @@
     background: transparent;
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Ensures space between elements */
     z-index: 50;
 }
 
-
-
-.social-media {
-    margin: 0  auto 0 20px;
-    
+.logo {
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
 }
 
+.navbar {
+    position: absolute;
+    top: 20px; /* Aligns "Contact" to the top middle */
+    left: 50%;
+    transform: translateX(-50%); /* Centers "Contact" horizontally */
+    font-size: 20px;
+    font-weight: 600;
+    font-style: italic;
+}
 
-/* Part 1 This is the box styles for the social media */
-.social-media a {
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #81b8f3;
+}
+
+/* Title Styles */
+.title {
     position: relative;
-    display: inline-flex;
+    top: 100px; /* Adjusted to appear below the navbar */
+    text-align: center;
+    font-size: 36px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    z-index: 40;
+}
+
+/* Social Media Styles */
+.social-media {
+    position: fixed;
+    top: 20px;
+    right: 50px; /* Adjusted to shift buttons further left */
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    z-index: 50;
+}
+
+.social-media a {
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 40px;
     height: 40px;
     background: transparent;
-    border: 0px solid #fff;
     border-radius: 6px;
     text-decoration: none;
-    margin-right: 10px;
-    transition: .5s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
-    overflow: hidden;
+    transition: background 0.3s ease;
 }
-
-
-
- 
-
-
-
-
-/* Part 2 Slide effect transition on the button */
-.social-media a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%; 
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, transparent 0%, #ffffff 50%, transparent 100%);
-    transition: transform 0.3s ease;
-    
-}
-
-
-
-/* Part 3 Slide effect transition on the button... The percent affects the length of the slide effect  */
-.social-media a:hover::before {
-    transform: translateX(180%); /* Move in from left to right on hover */
-}
-
 
 .social-media a:hover {
-    background: #ffffff00;
+    background: #ffffff20;
 }
 
 .social-media a i {
     font-size: 20px;
     color: #fff;
-    transition: .5s;
 }
 
-
-.social-media a:hover i {
-    color: #444;
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 100px 5%;
 }
 
-
-
-/* The tab selection on the top right */
-.navbar a {
-    font-size: 20px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    font-style: italic;
-    
-    margin-left: 30;
-    text-shadow: 0 0 10px rgba(0, 0, 0, .2);
-}
-
-
-/*Top Half  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/* Bottom Half */
-
-
-
-
-
-
-/* This fixes the white border -zaq */
-body {
-    margin: 0;
-}
-
-
-/* Extra font selection for the top right tabs  */
-.navbar {
-    position: relative;
-    top: 10;
-    right: 0;
-    width: 450px;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 100;
-    
-}
-
-
-@media screen and (max-width: 599px) {
-    .navbar {
-        position: absolute;
-        top: 10px; /* Add a unit, such as px */
-        right: 0;
-        width: 450px;
-        box-sizing: border-box;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 100;
-    }
-    
-    .navbar a {
-        font-size: 18px;
-        color: black;
-        text-decoration: none;
-        font-weight: 500;
-        margin-left: 30px;
-        text-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    
-    }
-}
-
-.banner {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    box-sizing: border-box;
-    overflow-x: hidden;
-}
-
-.slider .slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-/* The image resize */
-.slide img {
-    border: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    pointer-events: none;
-    margin: 0;
-    padding: 0;
-    display: block;
-    opacity: 0;
-    transition: .3s ease;
-}
-
-.slide.active img {
-    opacity: 1;
-}
-
-
-
-
-/* Style positioning for the left panel */
-.slide .left-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    transform: translateX(-100%);
-    transition: 0s;
-}
-
-.slide.active .left-info {
-    transform: translateX(0);
-    z-index: 1;
-    transition: .5s ease;
-}
-
-
-/* Left side panel blur plus the half of the word */
-.left-info .penetrate-blur {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, .1);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    -webkit-mask: linear-gradient(#000 0 0),
-    linear-gradient(#000 0 0);
-    -webkit-mask-clip: text, padding-box;
-    -webkit-mask-composite: xor;
-    text-shadow: 0px 0px 20px rgba(255, 255, 255 .8);
-     
-}
-
-/* White drop shadow on the Chi letters */
-.left-info .penetrate-blur h1 {
-   
-    text-shadow: 0 0 5px rgb(0, 0, 0); 
-}
-
-
-/* The middle of the screen words */
-.penetrate-blur h1 {
-    font-size: 150px;
-    letter-spacing: .4rem;
-    text-shadow: 2px 2px 10px rgba(255, 255, 255 .8);
-}
-
-
-.slide:nth-child(1) .penetrate-blur h1,
-.slide:nth-child(4) .penetrate-blur h1 {
-    margin-right: -10px
-}
-
-
-/*  My text box above the details button */
-.left-info .content {
-    position: absolute;
-    bottom: 8%;
-    left: 10%;
-    color: #fff;
-}
-
-
-.content h3 {
-    font-size: 20px;
-}
-
-
-.content p {
-    font-size: 16px;
-    margin: 10px 0 15px;
-    font-weight: 600;
-    font-style: italic;
-}
-
-
-/* Part 1 The styles for the button box */
-.content .btn {
-    position: relative;
-    display: inline-block;
-    padding: 13px 28px;
-    background: transparent;
-    border: 0px solid #fff;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
-    text-decoration: none;
-    font-size: 15px;
-    color: #fff;
-    font-weight: 600;
+.project-card {
     overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-
-
-/* Part 2 Slide effect transition on the button */
-.content .btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+.project-card img {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, transparent 0%, #ffffff 50%, transparent 100%);
-    transition: transform 0.3s ease; 
-    transform: translateX(-100%);
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-
-/* Part 3 Slide effect transition on the button  */
-.content .btn:hover::before {
-    transform: translateX(100%);
+.project-card:hover img {
+    transform: scale(1.1);
 }
 
-
-/* The "more details" words  */
-.content .btn:hover {
-    color: #444;
+.project-card .project-info {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
 }
 
-/* Right side of the screen transparent */
-.slide .right-info {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    transform: translateX(100%);
-    transition: 0s;
+.project-card:hover .project-info {
+    transform: translateY(0);
 }
 
-.slide.active .right-info {
-    transform: translateX(0);
-    z-index: 1;
-    transition: .5s ease;
+.project-card .project-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
 }
 
+.project-card .btn {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
 
+.project-card .btn:hover {
+    background: white;
+    color: black;
+}
+
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -361,9 +162,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    overflow: auto;
-    z-index: 9999; /* Ensure the modal appears on top */
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
 }
 
 .modal-content {
@@ -371,156 +171,63 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fefefe11;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
     padding: 20px;
     border-radius: 10px;
-    max-width: 80%;
-    max-height: 80%;
-    overflow-y: auto;
-    z-index: 10000; /* Ensure the modal content appears on top */
-    color: #fff; /* Set text color to white */
+    color: white;
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 1.5rem;
     cursor: pointer;
+    color: white;
 }
 
-
-
-.open-modal-link {
-    color: #ffffff; 
-    font-size: 16px; 
-    text-decoration: none; 
-    font-weight: bold; 
-    font-style: italic;
-}
-
-.open-modal-link:hover {
-    color: #81b8f3; /* Change color on hover */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* the middle of the screen right side  */
-.right-info h1 {
-    font-size: 150px;
-    color: #fff;
-    text-shadow: 
-        0 1px 0 #ccc,
-        0 2px 0 #c9c9c9,
-        0 3px 0 #bbb,
-        0 4px 0 #b9b9b9,
-        0 5px 0 #aaa,
-        0 6px 1px rgba(0, 0, 0, .1),
-        0 0px 5px rgba(0, 0, 0, .1),
-        0 1px 3px rgba(0, 0, 0, .3),
-        0 3px 5px rgba(0, 0, 0, .2),
-        0 5px 10px rgba(0, 0, 0, .25),
-        0 10px 10px rgba(0, 0, 0, .2),
-        0 20px 20px rgba(0, 0, 0, .15);
-
-}
-
-.slide:nth-child(2) .right-info h1,
-.slide:nth-child(4) .right-info h1 {
-    margin-left: 10px;
-}
-
-
-/* h3 is the "Forest" */
-.right-info h3 {
-    position: absolute;
-    font-size: 60px;
-    font-style: normal;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(0, 0, 0, .5);
-    transform: translateY(150%);
-    margin-left: 13px;
-}
-
-
-.hide-overflow {
-    overflow: hidden;
-    max-height: 50px;
-    transition: max-height 0.3s ease;
-}
-
+/* Navigation Styles */
 .navigation {
-    position: absolute;
-    bottom: 8%;
-    right: 5%;
-    z-index: 999;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 50;
 }
 
-/* The boxes in the bottom right used for scrolling */
 .navigation span {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 50px;
     height: 50px;
-    background: #ffffff;
-    border: 1px solid #fff;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-    cursor: pointer;
-    margin-left: 25px;
-    transition: .5s;
-}
-
-.navigation span:nth-child(1) {
-    background: transparent;
-}
-
-.navigation span:nth-child(1):hover {
-    background: #fff;
-}
-
-.navigation span i {
-    font-size: 45px;
-    color: #444;
-    transition: .5s;
-}
-
-
-.navigation span:nth-child(1) i{
+    background: #222;
     color: #fff;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
+.navigation span:hover {
+    background: #81b8f3;
+    transform: scale(1.1);
+}
 
+.navigation span:active {
+    background: #559ed3;
+}
 
-.navigation span:nth-child(1):hover i{
-    color: #444;
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-media {
+        flex-direction: row;
+        top: 15px;
+        right: 10px;
+        margin-right: auto;
+    }
 }

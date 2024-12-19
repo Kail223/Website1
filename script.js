@@ -1,173 +1,74 @@
-const nextBtn = document.querySelector('.prev-btn');
-const prevBtn = document.querySelector('.next-btn');
-const slides = document.querySelectorAll('.slide');
-const numberOfSlides = slides.length;
-let slideNumber = 0;
+// Page-specific slide configuration (optional for dynamic features)
+const pageSlides = {
+    'index.html': [
+        { image: './images/home-bg.jpg', leftText: 'Kyle', rightText: 'Baptiste' }
+    ],
+    'stockpage.html': [
+        { image: './images/latrip.jpg', leftText: 'Stock', rightText: 'Prediction' }
+    ],
+    'uepage.html': [
+        { image: './images/serbia.jpg', leftText: 'Unreal Engine', rightText: 'Game' }
+    ],
+    'selfdrivepage.html': [
+        { image: './images/brazil.jpg', leftText: 'Self Driving', rightText: 'AI' }
+    ],
+    'ue2page.html': [
+        { image: './images/africa.jpg', leftText: 'Unreal Engine', rightText: 'Blueprinting' }
+    ],
+    'futureprojpage.html': [
+        { image: './images/japan.jpg', leftText: 'Future', rightText: 'Projects' }
+    ]
+};
 
-//slider next button
-nextBtn.onclick = () => {
-    slides.forEach((slide) => {
-        slide.classList.remove('active');
-    });
+// Navigation function
+function setupPageNavigation() {
+    const nextBtn = document.querySelector('.next-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-    slideNumber++;
+    // Define pages order
+    const pageOrder = [
+        'index.html',
+        'stockpage.html',
+        'uepage.html',
+        'selfdrivepage.html',
+        'ue2page.html',
+        'futureprojpage.html'
+    ];
 
-    if (slideNumber > (numberOfSlides - 1)) {
-        slideNumber = 0;
+    // Get the current page index
+    let currentPageIndex = pageOrder.indexOf(currentPage);
+
+    // Ensure the current page is in the sequence
+    if (currentPageIndex === -1) {
+        console.error('Current page is not found in the navigation sequence:', currentPage);
+        return;
     }
 
-    slides[slideNumber].classList.add('active');
-
-}
-
-
-//slider prev button
-prevBtn.onclick = () => {
-    slides.forEach((slide) => {
-        slide.classList.remove('active');
-    });
-
-    slideNumber--;
-
-    if (slideNumber < 0) {
-        slideNumber = numberOfSlides - 1;
-    }
-
-    slides[slideNumber].classList.add('active');
-
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    var scrollBtn = document.querySelector(".content .btn");
-
-    scrollBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-
-        var scrollTarget = document.getElementById("scroll-target");
-
-        // Scroll to the target element smoothly
-        scrollTarget.scrollIntoView({ behavior: "smooth" });
-    });
-});
-
-// Wait for the DOM to be ready
-document.addEventListener('DOMContentLoaded', function () {
-    // Get the elements
-    const moreDetailsBtn = document.querySelector('.more-details');
-    const dynamicContent = document.querySelector('.dynamic-content');
-
-    // Set a flag to track whether details are currently visible
-    let detailsVisible = false;
-
-    // Add click event listener to the "More Details" button
-    moreDetailsBtn.addEventListener('click', toggleDetails);
-
-    // Function to toggle details and scroll down
-    function toggleDetails() {
-        // Toggle the visibility of dynamic content
-        if (detailsVisible) {
-            dynamicContent.innerHTML = ''; // Clear content if details are visible
-        } else {
-            // Set or update the dynamic content
-            dynamicContent.innerHTML = `
-                <h3>How it works</h3>
-                <p>The tool utilizes Facebook prophet to forecast the database data of the top 100 stocks. The user can use the page sliders to scale from present to years into the future.</p>
-                <!-- Add more content as needed -->
-            `;
-        }
-
-        // Toggle the flag
-        detailsVisible = !detailsVisible;
-
-        // Scroll down smoothly to the next section
-        window.scrollBy({
-            top: window.innerHeight, // Adjust this value based on your design
-            behavior: 'smooth'
+    // Set up click handlers for navigation buttons
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            currentPageIndex = (currentPageIndex + 1) % pageOrder.length; // Loop back to the start if at the end
+            console.log(`Navigating to: ${pageOrder[currentPageIndex]}`); // Debug log
+            window.location.href = pageOrder[currentPageIndex];
         });
-    }
-});
-
-
-function toggleDetails() {
-    // Toggle your details display logic if needed
-}
-
-
-// Add this to your existing JavaScript
-const modal = document.getElementById('myModal');
-const moreDetailsBtn = document.querySelector('.more-details');
-const closeModalBtn = document.querySelector('.close');
-
-moreDetailsBtn.addEventListener('click', () => {
-    modal.style.display = 'block';
-});
-
-closeModalBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
-
-// Close the modal if the user clicks outside of it
-window.addEventListener('click', (event) => {
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-});
-
-function openModal(modalId) {
-    var modal = document.getElementById(modalId);
-    modal.style.display = "block";
-}
-
-function closeModal(modalId) {
-    var modal = document.getElementById(modalId);
-    modal.style.display = "none";
-}
-
-function openModal(modalId) {
-    // Check if modalId is 'modal-right'
-    if (modalId === 'modal-right') {
-        // Open GitHub repository in a new tab
-        window.open('https://github.com/Kail223/All-Python-Code-for-Project', '_blank');
     } else {
-        // Open the specified modal
-        var modal = document.getElementById(modalId);
-        modal.style.display = 'block';
+        console.error('Next button (.next-btn) not found.');
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentPageIndex = (currentPageIndex - 1 + pageOrder.length) % pageOrder.length; // Loop back to the end if at the start
+            console.log(`Navigating to: ${pageOrder[currentPageIndex]}`); // Debug log
+            window.location.href = pageOrder[currentPageIndex];
+        });
+    } else {
+        console.error('Previous button (.prev-btn) not found.');
     }
 }
 
-function openModal() {
-    var modal = document.getElementById("myModal");
-    modal.style.display = "block";
-}
-
-// Function to close the modal
-function closeModal() {
-    var modal = document.getElementById("myModal");
-    modal.style.display = "none";
-}
-
-// Function to open the "Coming Soon" modal
-function openComingSoonModal() {
-    var modal = document.getElementById("comingSoonModal");
-    modal.style.display = "block";
-}
-
-// Function to close the "Coming Soon" modal
-function closeComingSoonModal() {
-    var modal = document.getElementById("comingSoonModal");
-    modal.style.display = "none";
-}
-
-function closeComingSoonModal() {
-    var modal = document.getElementById("comingSoonModal");
-    modal.style.display = "none";
-}
-
-window.addEventListener('click', function(event) {
-    var modal = document.getElementById("comingSoonModal");
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+// Initialize functions on DOM load
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Initializing page navigation...');
+    setupPageNavigation();
 });
-
-

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MXTZ WAVE | Kyle Baptiste</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .banner {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('./images/kikimi.jpg') no-repeat center center/cover;
+        }
+
+        .banner .text {
+            position: absolute;
+            font-size: 5rem;
+            color: white;
+            font-weight: bold;
+            transition: filter 0.5s ease;
+            z-index: 1;
+            -webkit-text-stroke: 1px black;
+            font-style: italic;
+        }
+
+        .banner:hover .text {
+            filter: blur(5px);
+        }
+
+        .banner .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .banner:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay h2 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .overlay p {
+            margin: 15px 0;
+            font-size: 1.2rem;
+        }
+
+        .overlay ul {
+            text-align: left;
+            padding: 0;
+            list-style: none;
+        }
+
+        .overlay ul li {
+            margin: 5px 0;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 3;
+        }
+
+        .navigation span {
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            margin: 0 15px;
+            transition: background 0.3s ease;
+        }
+
+        .navigation span:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 4;
+        }
+
+        .header .logo {
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            font-style: italic;
+        }
+
+        .header .social-media {
+            display: flex;
+            gap: 10px;
+            margin-right: 31px;
+        }
+
+        .header .social-media a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Home</a>
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/kyle-baptiste/">
+                <i class="bx bxl-linkedin"></i>
+            </a>
+            <a href="mailto:kylelbaptiste@gmail.com">
+                <i class="bx bx-envelope"></i>
+            </a>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="text">Summer & Fall 2024</div>
+        <div class="overlay">
+            <h2>Mobile Development Internship</h2>
+            <p>Flutter App Development: 2024 </p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/9RxGMTDvnks?si=8IpRnZNedlk_Vs46" frameborder="0" allowfullscreen></iframe>
+            <h2>Project Overview</h2>
+        <ul>
+                <li>The main objective was to create a mobile hub from the ground up, that had a secure login system.</li>
+                <li>The app needed to be able to host all of the required student functionality, and host video calls for the classrooms.</li>
+                <li>The app also had to be compatible with the standalone "mute" device and both Android and IOS.</li>
+        </ul>
+            <h2>Key Development Aspects</h2>
+            <ul>
+                <li>Flutter needed to be used to create a login system, and a hub style home page with access to everything within a few button presses.</li>
+                <li>The video functionality specifically needed to use jitsi while being integrated within the app.</li>
+                <li>The app also needed to have a student view, and a teacher view with more privileges and functionality.</li>
+            </ul>
+        </div>
+        <div class="navigation">
+            <span class="prev-btn" onclick="navigateTo('ue2page.html')"><i class="bx bx-left-arrow-alt"></i></span>
+            <span class="next-btn" onclick="navigateTo('nienie.html')"><i class="bx bx-right-arrow-alt"></i></span>
+        </div>
+    </section>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
