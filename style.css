@@ -19,7 +19,7 @@ body {
     background: transparent;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Ensures space between elements */
+    justify-content: space-between;
     z-index: 50;
 }
 
@@ -32,9 +32,9 @@ body {
 
 .navbar {
     position: absolute;
-    top: 20px; /* Aligns "Contact" to the top middle */
+    top: 20px;
     left: 50%;
-    transform: translateX(-50%); /* Centers "Contact" horizontally */
+    transform: translateX(-50%);
     font-size: 20px;
     font-weight: 600;
     font-style: italic;
@@ -54,7 +54,7 @@ body {
 /* Title Styles */
 .title {
     position: relative;
-    top: 100px; /* Adjusted to appear below the navbar */
+    top: 100px;
     text-align: center;
     font-size: 36px;
     font-weight: 600;
@@ -68,7 +68,7 @@ body {
 .social-media {
     position: fixed;
     top: 20px;
-    right: 50px; /* Adjusted to shift buttons further left */
+    right: 50px;
     display: flex;
     flex-direction: row;
     gap: 15px;
@@ -107,16 +107,21 @@ body {
 .project-card {
     overflow: hidden;
     border-radius: 10px;
+    position: relative;
     transition: transform 0.3s ease;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    height: 250px;
 }
 
 .project-card img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .project-card:hover img {
@@ -124,11 +129,22 @@ body {
 }
 
 .project-card .project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 20px;
+    box-sizing: border-box;
     transform: translateY(100%);
     transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .project-card:hover .project-info {
@@ -138,6 +154,7 @@ body {
 .project-card .project-info h3 {
     margin-bottom: 10px;
     font-size: 1.5rem;
+    line-height: 1.2;
 }
 
 .project-card .btn {
@@ -147,6 +164,7 @@ body {
     color: white;
     text-decoration: none;
     transition: background 0.3s ease;
+    margin-top: 10px;
 }
 
 .project-card .btn:hover {
@@ -224,10 +242,15 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .social-media {
-        flex-direction: row;
-        top: 15px;
-        right: 10px;
-        margin-right: auto;
+    .project-card {
+        height: 200px;
+    }
+
+    .project-card .project-info {
+        padding: 15px;
+    }
+
+    .project-card .btn {
+        font-size: 0.9rem;
     }
 }
